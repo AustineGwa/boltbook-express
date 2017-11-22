@@ -1,0 +1,11 @@
+{
+  "name": "boltbook-express",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Clayton Ray <iamclaytonray@gmail.com> (https://iamclaytonray.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "0.17.1",
+    "jquery": "3.2.1"
+  }
+}

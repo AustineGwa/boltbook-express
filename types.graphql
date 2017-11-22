@@ -1,0 +1,121 @@
+type Chat @model {
+  createdAt: DateTime!
+  id: ID! @isUnique
+  updatedAt: DateTime!
+  # participants: [User!]! @relation(name: "UserOnChat")
+}
+
+type Comment @model {
+  body: String!
+  createdAt: DateTime!
+  id: ID! @isUnique
+  post: Post @relation(name: "PostOnComment")
+  updatedAt: DateTime!
+  author: User @relation(name: "CommentAuthor")
+}
+
+type Event @model {
+  attendees: [User!]! @relation(name: "EventOnUser")
+  createdAt: DateTime!
+  date: String!
+  id: ID! @isUnique
+  time: String!
+  updatedAt: DateTime!
+}
+
+type File @model {
+  contentType: String!
+  createdAt: DateTime!
+  id: ID! @isUnique
+  name: String!
+  secret: String! @isUnique
+  size: Int!
+  updatedAt: DateTime!
+  url: String! @isUnique
+}
+
+type Group @model {
+  createdAt: DateTime!
+  id: ID! @isUnique
+  updatedAt: DateTime!
+  users: [User!]! @relation(name: "GroupUsers")
+}
+
+type Notification @model {
+  createdAt: DateTime!
+  id: ID! @isUnique
+  updatedAt: DateTime!
+  user: User! @relation(name: "UserNotifications")
+}
+
+type Page @model {
+  createdAt: DateTime!
+  id: ID! @isUnique
+  updatedAt: DateTime!
+}
+
+type Post @model {
+  body: String!
+  comments: [Comment!]! @relation(name: "PostOnComment")
+  createdAt: DateTime!
+  id: ID! @isUnique
+  images: [String!]
+  reactions: [Reaction!]! @relation(name: "PostReactions")
+  updatedAt: DateTime!
+  user: User! @relation(name: "PostOnUser")
+  videos: [String!]
+}
+
+type Reaction @model {
+  id: ID! @isUnique
+  type: ReactionType!
+  post: Post! @relation(name: "PostReactions")
+  user: User! @relation(name: "UserReactions")
+}
+
+type User @model {
+  avatar: String @defaultValue(value: "https://s3-us-west-2.amazonaws.com/boltstack-images/default-profile-pic.jpg")
+  bio: String
+  comments: [Comment!]! @relation(name: "CommentAuthor")
+  coverImage: String @defaultValue(value: "https://s3-us-west-2.amazonaws.com/boltstack-images/cover-pic.jpg")
+  createdAt: DateTime!
+  currentCity: String
+  email: String! @isUnique
+  events: [Event!]! @relation(name: "EventOnUser")
+  featuredImages: [String!]
+  firstName: String!
+  friends: [User!]! @relation(name: "UserOnUser")
+  gender: Gender
+  groups: [Group!]! @relation(name: "GroupUsers")
+  homeTown: String
+  id: ID! @isUnique
+  lastName: String!
+  notifications: [Notification!]! @relation(name: "UserNotifications")
+  password: String!
+  phoneNumber: String
+  posts: [Post!]! @relation(name: "PostOnUser")
+  reaction: Reaction @relation(name: "UserReactions")
+  relationshipStatus: Relationship
+  updatedAt: DateTime!
+  username: String! @isUnique
+}
+
+enum Gender {
+  Male
+  Female
+}
+
+enum ReactionType {
+  Like
+  Dislike
+  Sad
+  Angry
+  Funny
+}
+
+enum Relationship {
+  Single
+  Married
+  Divorced
+  Widowed
+}
