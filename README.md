@@ -4,8 +4,10 @@ This is a clone of Facebook written in Express.
 
 ### Getting Started
 
+**If you are contributing, make sure to fork the repo and clone your fork.**
+
 ```bash
-git clone 
+git clone https://github.com/boltstack/boltbook-express.git
 ```
 
 ```bash
