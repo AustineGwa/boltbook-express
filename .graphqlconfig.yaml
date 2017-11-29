@@ -1,0 +1,6 @@
+schemaPath: schema.graphql
+extensions:
+  endpoints:
+    dev:
+      url: 'http://localhost:60000/simple/v1/cja7zkr2r00cr0141ap4hnb55'
+      subscription: 'ws://localhost:60000/subscriptions/v1/cja7zkr2r00cr0141ap4hnb55'
