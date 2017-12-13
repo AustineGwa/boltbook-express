@@ -1,5 +1,5 @@
 # source: http://localhost:60000/simple/v1/cja7zkr2r00cr0141ap4hnb55
-# timestamp: Wed Nov 29 2017 10:21:48 GMT-0500 (EST)
+# timestamp: Tue Dec 12 2017 21:12:11 GMT-0500 (EST)
 
 enum _ModelMutationType {
   CREATED
@@ -50,6 +50,12 @@ type AddToUserNotificationsPayload {
 type AddToUserOnUserPayload {
   friends2User: User
   friends1User: User
+}
+
+# AuthenticateUserPayload
+type AuthenticateUserPayload {
+  id: ID!
+  token: String!
 }
 
 type Chat implements Node {
@@ -2046,6 +2052,11 @@ input GroupusersUser {
   posts: [UserpostsPost!]
 }
 
+# LoggedInUserPayload
+type LoggedInUserPayload {
+  id: ID!
+}
+
 type Mutation {
   createChat: Chat
   createComment(body: String!, authorId: ID, author: CommentauthorUser, postId: ID, post: CommentpostPost): Comment
@@ -2101,6 +2112,12 @@ type Mutation {
   removeFromPostOnComment(postPostId: ID!, commentsCommentId: ID!): RemoveFromPostOnCommentPayload
   removeFromUserOnUser(friends1UserId: ID!, friends2UserId: ID!): RemoveFromUserOnUserPayload
   createUser(avatar: String, bio: String, coverImage: String, currentCity: String, email: String!, featuredImages: [String!], firstName: String!, gender: Gender, homeTown: String, lastName: String!, password: String!, phoneNumber: String, relationshipStatus: Relationship, username: String!, reactionId: ID, reaction: UserreactionReaction, commentsIds: [ID!], comments: [UsercommentsComment!], eventsIds: [ID!], events: [UsereventsEvent!], friendsIds: [ID!], friends: [UserfriendsUser!], groupsIds: [ID!], groups: [UsergroupsGroup!], notificationsIds: [ID!], postsIds: [ID!], posts: [UserpostsPost!]): User
+
+  # authenticate
+  authenticateUser(email: String!, password: String!): AuthenticateUserPayload
+
+  # signup
+  signupUser(firstName: String!, lastName: String!, username: String!, email: String!, password: String!): SignupUserPayload
 }
 
 # An object with an ID
@@ -3010,6 +3027,9 @@ type Query {
   Post(id: ID): Post
   Reaction(id: ID): Reaction
   User(email: String, id: ID, username: String): User
+
+  # loggedInUser
+  loggedInUser: LoggedInUserPayload
   user: User
 
   # Fetches an object given its ID
@@ -3264,6 +3284,12 @@ type RemoveFromUserOnUserPayload {
 type SetUserReactionsPayload {
   reactionReaction: Reaction
   userUser: User
+}
+
+# SignupUserPayload
+type SignupUserPayload {
+  id: ID!
+  token: String!
 }
 
 type Subscription {

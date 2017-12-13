@@ -1,52 +1,73 @@
 types: ./types.graphql
-functions: {}
+
+functions: 
+  signup:
+    type: resolver
+    schema: src/signup.graphql
+    handler:
+      code: src/signup.ts
+
+  authenticate:
+    type: resolver
+    schema: src/authenticate.graphql
+    handler:
+      code: src/authenticate.ts
+
+  loggedInUser:
+    type: resolver
+    schema: src/loggedInUser.graphql
+    handler:
+      code: src/loggedInUser.ts
+
 permissions:
-- operation: Chat.read
-- operation: Chat.create
-- operation: Chat.update
-- operation: Chat.delete
-- operation: Comment.read
-- operation: Comment.create
-- operation: Comment.update
-- operation: Comment.delete
-- operation: Event.read
-- operation: Event.create
-- operation: Event.update
-- operation: Event.delete
-- operation: File.read
-- operation: File.create
-- operation: File.update
-- operation: File.delete
-- operation: Group.read
-- operation: Group.create
-- operation: Group.update
-- operation: Group.delete
-- operation: Notification.read
-- operation: Notification.create
-- operation: Notification.update
-- operation: Notification.delete
-- operation: Page.read
-- operation: Page.create
-- operation: Page.update
-- operation: Page.delete
-- operation: Post.read
-- operation: Post.create
-- operation: Post.update
-- operation: Post.delete
-- operation: Reaction.read
-- operation: Reaction.create
-- operation: Reaction.update
-- operation: Reaction.delete
-- operation: User.read
-- operation: User.create
-- operation: User.update
-- operation: User.delete
-- operation: CommentAuthor.*
-- operation: GroupUsers.*
-- operation: PostOnComment.*
-- operation: PostReactions.*
-- operation: PostOnUser.*
-- operation: UserOnUser.*
-- operation: UserReactions.*
-- operation: UserNotifications.*
-rootTokens: []
+  - operation: Chat.read
+  - operation: Chat.create
+  - operation: Chat.update
+  - operation: Chat.delete
+  - operation: Comment.read
+  - operation: Comment.create
+  - operation: Comment.update
+  - operation: Comment.delete
+  - operation: Event.read
+  - operation: Event.create
+  - operation: Event.update
+  - operation: Event.delete
+  - operation: File.read
+  - operation: File.create
+  - operation: File.update
+  - operation: File.delete
+  - operation: Group.read
+  - operation: Group.create
+  - operation: Group.update
+  - operation: Group.delete
+  - operation: Notification.read
+  - operation: Notification.create
+  - operation: Notification.update
+  - operation: Notification.delete
+  - operation: Page.read
+  - operation: Page.create
+  - operation: Page.update
+  - operation: Page.delete
+  - operation: Post.read
+  - operation: Post.create
+  - operation: Post.update
+  - operation: Post.delete
+  - operation: Reaction.read
+  - operation: Reaction.create
+  - operation: Reaction.update
+  - operation: Reaction.delete
+  - operation: User.read
+  - operation: User.create
+  - operation: User.update
+  - operation: User.delete
+  - operation: CommentAuthor.*
+  - operation: GroupUsers.*
+  - operation: PostOnComment.*
+  - operation: PostReactions.*
+  - operation: PostOnUser.*
+  - operation: UserOnUser.*
+  - operation: UserReactions.*
+  - operation: UserNotifications.*
+
+rootTokens:
+  - myToken
