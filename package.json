@@ -4,8 +4,16 @@
   "main": "index.js",
   "author": "Clayton Ray <iamclaytonray@gmail.com> (https://iamclaytonray.com/)",
   "license": "MIT",
+  "scripts": {
+    "gs": "gql get-schema"
+  },
   "dependencies": {
-    "axios": "0.17.1",
-    "jquery": "3.2.1"
+    "express": "4.16.2"
+  },
+  "devDependencies": {
+    "@types/express": "4.0.39",
+    "@types/node": "8.0.58",
+    "tslint": "5.8.0",
+    "typescript": "2.6.2"
   }
 }
