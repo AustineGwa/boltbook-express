@@ -1,9 +1,9 @@
 type LoggedInUserPayload {
   id: ID!
-  firstName: String!
-  lastName: String!
-  username: String!
-  profilePicture: String!
+  firstName: String
+  lastName: String
+  username: String
+  avatar: String
 }
 
 extend type Query {
