@@ -1,8 +1,11 @@
 type LoggedInUserPayload {
   id: ID!
+  firstName: String!
+  lastName: String!
+  username: String!
+  profilePicture: String!
 }
 
 extend type Query {
-  # return user data if request contains valid authentication token
   loggedInUser: LoggedInUserPayload
 }

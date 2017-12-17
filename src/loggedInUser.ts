@@ -38,7 +38,11 @@ async function getUser(api: GraphQLClient, id: string): Promise<{ User }> {
   const query = `
     query getUser($id: ID!) {
       User(id: $id) {
-        id
+        id,
+        firstName,
+        lastName,
+        username,
+        password
       }
     }
   `
