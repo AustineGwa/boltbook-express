@@ -1,5 +1,5 @@
 # source: http://localhost:60000/simple/v1/cja7zkr2r00cr0141ap4hnb55
-# timestamp: Sat Dec 16 2017 21:05:09 GMT-0500 (EST)
+# timestamp: Sat Dec 16 2017 21:18:13 GMT-0500 (EST)
 
 enum _ModelMutationType {
   CREATED
@@ -2055,10 +2055,10 @@ input GroupusersUser {
 # LoggedInUserPayload
 type LoggedInUserPayload {
   id: ID!
-  firstName: String!
-  lastName: String!
-  username: String!
-  profilePicture: String!
+  firstName: String
+  lastName: String
+  username: String
+  avatar: String
 }
 
 type Mutation {
@@ -2118,7 +2118,7 @@ type Mutation {
   createUser(avatar: String, bio: String, coverImage: String, currentCity: String, email: String!, featuredImages: [String!], firstName: String!, gender: Gender, homeTown: String, lastName: String!, password: String!, phoneNumber: String, relationshipStatus: Relationship, username: String!, reactionId: ID, reaction: UserreactionReaction, commentsIds: [ID!], comments: [UsercommentsComment!], eventsIds: [ID!], events: [UsereventsEvent!], friendsIds: [ID!], friends: [UserfriendsUser!], groupsIds: [ID!], groups: [UsergroupsGroup!], notificationsIds: [ID!], postsIds: [ID!], posts: [UserpostsPost!]): User
 
   # authenticate
-  authenticateUser(email: String!, password: String!): AuthenticateUserPayload
+  authenticateUser(username: String!, password: String!): AuthenticateUserPayload
 
   # signup
   signupUser(firstName: String!, lastName: String!, username: String!, email: String!, password: String!): SignupUserPayload
